@@ -17,7 +17,8 @@
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Idade</th>
-            <th scope="col">Estado</th>
+            <th scope="col">CEP</th>
+            <th scope="col">Btn</th>
         </tr>
     </thead>
     <tbody>
@@ -25,31 +26,13 @@
             <th scope="row">1</th>
             <td>Mark</td>
             <td>22</td>
-            <td>SC</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>28</td>
-            <td>SP</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Luke</td>
-            <td>22</td>
-            <td>RJ</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Maria</td>
-            <td>19</td>
-            <td>RS</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Ariel</td>
-            <td>31</td>
-            <td>MG</td>
+            <td>88353-100</td>
+            <td>
+                <div class="d-grid gap-2 d-md-block">
+                    <a type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="88350-100">Endereco</a>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
+<a type="submit" class="btn btn-dark" role="button" asp-area="" asp-controller="Aluno" asp-action="AdicionarAluno">Adicionar!</a>
