@@ -3,6 +3,17 @@
 *@
 @{
     ViewData["Title"] = "Alunos";
+    ViewData["BuscouEndereco"] = "Endereço encontrado!";
+    if(ViewData["MsgErro"] != null)
+    {
+        <div class="alert-danger">
+            @ViewData["MsgErro"]
+        </div>
+    }
+    <div class="alert-success">
+        @ViewData["EnderecoEncontrado"]
+    </div>
+    
 }
 <style>
     .tituloAlunos{
@@ -35,4 +46,4 @@
         </tr>
     </tbody>
 </table>
-<a type="submit" class="btn btn-dark" role="button" asp-area="" asp-controller="Cadastro" asp-action="Cadastro">Adicionar!</a>
+<a type="submit" class="btn btn-dark" role="button" asp-area="" asp-controller="Cadastro" asp-action="Cadastro">Adicionar aluno!</a>

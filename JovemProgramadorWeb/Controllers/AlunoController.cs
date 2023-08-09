@@ -31,13 +31,19 @@ namespace JovemProgramadorWeb.Controllers
                 if (result.IsSuccessStatusCode)
                 {
                     endereco = JsonSerializer.Deserialize<Endereco>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
+                    
+                }
+                else
+                {
+                    ViewData["MsgErro"] = "Erro na busca de endereço!";
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-            return View();
+            ViewData["EnderecoEncontrado"] = "Endereço encontrado com sucesso!";
+            return View("Aluno");
         }
     }
 }
