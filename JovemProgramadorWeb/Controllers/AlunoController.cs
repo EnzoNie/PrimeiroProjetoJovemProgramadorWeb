@@ -17,6 +17,7 @@ namespace JovemProgramadorWeb.Controllers
         {
             return View();
         }
+
         public async Task<IActionResult>BuscarEndereco(string cep)
         {
             Endereco endereco = new Endereco();
@@ -28,22 +29,22 @@ namespace JovemProgramadorWeb.Controllers
                 using var client = new HttpClient();
                 var result = await client.GetAsync(_configuration.GetSection("ApiCep")["BaseUrl"] + cep + "/json");
 
-                if (result.IsSuccessStatusCode)
+                if (!result.IsSuccessStatusCode)
                 {
-                    endereco = JsonSerializer.Deserialize<Endereco>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
-                    
+                    ViewData["MsgErro"] = "Erro na busca de endereço!";
+
                 }
                 else
                 {
-                    ViewData["MsgErro"] = "Erro na busca de endereço!";
+                    endereco = JsonSerializer.Deserialize<Endereco>(await result.Content.ReadAsStringAsync(), new JsonSerializerOptions() { });
+
                 }
             }
             catch (Exception)
             {
                 throw;
             }
-            ViewData["EnderecoEncontrado"] = "Endereço encontrado com sucesso!";
-            return View("Aluno");
+            return View("Endereco", endereco);
         }
     }
 }
