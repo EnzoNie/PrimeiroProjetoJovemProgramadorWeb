@@ -1,7 +1,19 @@
+using JovemProgramadorWeb.Data.Repositório.Interface;
+using JovemProgramadorWeb.Data.Repositório;
+using JovemProgramadorWeb.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
+
+var connectionString = builder.Configuration.GetConnectionString("StringConexao");
+builder.Services.AddDbContext<BancoContexto>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
 
 var app = builder.Build();
 
