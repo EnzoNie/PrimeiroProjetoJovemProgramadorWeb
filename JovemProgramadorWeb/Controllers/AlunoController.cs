@@ -1,4 +1,5 @@
-﻿using JovemProgramadorWeb.Models;
+﻿using JovemProgramadorWeb.Data.Repositório.Interface;
+using JovemProgramadorWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -8,14 +9,33 @@ namespace JovemProgramadorWeb.Controllers
     public class AlunoController : Controller
     {
         private readonly IConfiguration _configuration;
+        private readonly IAlunoRepositorio _alunoRepositorio;
 
-        public AlunoController(IConfiguration configuration)
+        public AlunoController(IConfiguration configuration, IAlunoRepositorio alunoRepositorio)
         {
             _configuration = configuration;
+            _alunoRepositorio = alunoRepositorio;
+            
         }
         public IActionResult Aluno()
         {
-            return View();
+            var aluno = _alunoRepositorio.BuscarAlunos();
+            return View(aluno);
+        }
+
+        public IActionResult InserirAluno(Aluno aluno)
+        {
+            try
+            {
+                _alunoRepositorio.InserirAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro ao inserir aluno!";
+            }
+            TempData["MsgSucesso"] = "Aluno adicionado com sucesso!";
+
+            return RedirectToAction("Aluno");
         }
 
         public async Task<IActionResult>BuscarEndereco(string cep)
