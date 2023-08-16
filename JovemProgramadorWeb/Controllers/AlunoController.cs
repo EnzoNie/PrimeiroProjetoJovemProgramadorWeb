@@ -37,7 +37,36 @@ namespace JovemProgramadorWeb.Controllers
 
             return RedirectToAction("Aluno");
         }
+        public IActionResult EditarAluno(Aluno aluno)
+        {
+            
+            try
+            {
+                _alunoRepositorio.EditarAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro ao editar aluno!";
+            }
+            TempData["MsgSucesso"] = "Aluno editado com sucesso!";
 
+            return RedirectToAction("Aluno");
+        }
+        public IActionResult ExcluirAluno(Aluno aluno)
+        {
+
+            try
+            {
+                _alunoRepositorio.ExcluirAluno(aluno);
+            }
+            catch (Exception ex)
+            {
+                TempData["MsgErro"] = "Erro ao excluir aluno!";
+            }
+            TempData["MsgSucesso"] = "Aluno excluído com sucesso!";
+
+            return RedirectToAction("Aluno");
+        }
         public async Task<IActionResult>BuscarEndereco(string cep)
         {
             Endereco endereco = new Endereco();
@@ -65,6 +94,12 @@ namespace JovemProgramadorWeb.Controllers
                 throw;
             }
             return View("Endereco", endereco);
+        }
+        public IActionResult ModalEditarAluno(int id)
+        {
+            var alunoId = _alunoRepositorio.BuscarAlunoPorId(id);
+
+            return View("EditarAluno", alunoId);
         }
     }
 }

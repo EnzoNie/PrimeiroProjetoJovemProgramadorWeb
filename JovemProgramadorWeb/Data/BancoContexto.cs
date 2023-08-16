@@ -16,5 +16,6 @@ namespace JovemProgramadorWeb.Data
             modelBuilder.ApplyConfiguration(new AlunoMapeamento());
         }
         public DbSet<Aluno> Aluno { get; set; }
+
     }
 }
