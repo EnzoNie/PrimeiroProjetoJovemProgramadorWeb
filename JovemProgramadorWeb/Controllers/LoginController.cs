@@ -18,7 +18,7 @@ namespace JovemProgramadorWeb.Controllers
         {
             return View();
         }
-        public IActionResult ValidacaoLogin(string email, string senha)
+        public IActionResult Logar(string email, string senha)
         {
             try
             {
