@@ -12,5 +12,7 @@ namespace JovemProgramadorWeb.Data.Repositório.Interface
         void ExcluirAluno(Aluno aluno);
 
         Aluno BuscarAlunoPorId(int id);
+
+        bool ValidarLogin(string email, string senha);
     }
 }

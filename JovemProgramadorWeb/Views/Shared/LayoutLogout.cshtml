@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -8,49 +9,53 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/JovemProgramadorWeb.styles.css" asp-append-version="true" />
     <style>
-        body{
+        body {
             background-color: #1c1b1b;
             background-image: linear-gradient(to bottom, #1c1b1b, #808080);
             background-repeat: repeat;
-           font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;        
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
         }
-        .tituloHome{
+
+        .tituloHome {
             padding-top: 30px;
             color: #f0f0f0;
             font-size: 50px;
         }
-        .mainIndex{
+
+        .mainIndex {
             display: grid;
             grid-template-columns: repeat(2, 500px);
             grid-gap: 100px;
-            padding-top:50px;
+            padding-top: 50px;
             justify-content: center;
             color: white;
         }
 
-        .cardApresetacao{
+        .cardApresetacao {
             background-color: #f0f0f0;
             color: white;
             width: 500px;
             height: 500px;
         }
-        .cardImg{
+
+        .cardImg {
             width: 500px;
             height: 300px;
-        
         }
 
-        .btn-primary{
+        .btn-primary {
             background-color: black;
             color: #f0f0f0;
             border: 2px solid black;
         }
-        .btn-primary:hover{
+
+            .btn-primary:hover {
                 background-color: white;
                 color: black;
                 border: 2px solid black;
-        }
-        .container{
+            }
+
+        .container {
             color: #f0f0f0;
         }
 
@@ -60,12 +65,12 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JovemProgramadorWeb</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Login" asp-action="Login">JovemProgramadorWeb</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -76,14 +81,14 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Aluno" asp-action="Aluno">Alunos</a>
                         </li>
-                        @* <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Professor" asp-action="Professor">Professor</a>
-                        </li> *@
+                        <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Professor" asp-action="Professor">Professor</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Conhecimento" asp-action="Conhecimento">Trilha de Aprendizado</a>
-                        </li>
+                        </li> 
                     </ul>
-                </div>
+                </div> *@
             </div>
         </nav>
     </header>

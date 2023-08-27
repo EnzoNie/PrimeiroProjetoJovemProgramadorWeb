@@ -17,7 +17,6 @@ namespace JovemProgramadorWeb.Data.Repositório
             return _bancoContexto.Aluno.ToList();
         }
  
-
         public void InserirAluno(Aluno aluno)
         {
             _bancoContexto.Aluno.Add(aluno);
@@ -37,7 +36,18 @@ namespace JovemProgramadorWeb.Data.Repositório
 
         public Aluno BuscarAlunoPorId(int id)
         {
-            return _bancoContexto.Aluno.Find(id);
+            return _bancoContexto.Aluno.FirstOrDefault(x=>x.Id == id);
+        }
+
+        public bool ValidarLogin(string email, string senha)
+        {
+            var resultado = _bancoContexto.Aluno.FirstOrDefault(x => x.Email == email && x.Senha == senha);
+
+            if (resultado == null)
+            {
+                throw new Exception("Email ou senha inválidos!");
+            }
+            return true;
         }
     }
 }

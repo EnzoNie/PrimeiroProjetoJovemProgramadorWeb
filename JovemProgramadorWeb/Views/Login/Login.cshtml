@@ -1,0 +1,27 @@
+﻿@model Aluno
+@{
+    Layout = "LayoutLogout";
+
+    if (TempData["MsgErro"] != null)
+    {
+        <div class="alert-error">
+            @TempData["MsgErro"]
+        </div>
+    }
+}
+
+<form asp-controller="Login" asp-action="ValidacaoLogin">
+    <br />
+    <br />
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+    </div>
+    <button type="submit" class="btn btn-primary">Efetuar Login</button>
+    <br>
+    <br />
+</form>

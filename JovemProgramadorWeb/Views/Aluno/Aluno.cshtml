@@ -2,7 +2,7 @@
 @{
     ViewData["Title"] = "Alunos";
     ViewData["BuscouEndereco"] = "Endereço encontrado!";
-    if(ViewData["MsgErro"] != null)
+    if (ViewData["MsgErro"] != null)
     {
         <div class="alert-danger">
             @ViewData["MsgErro"]
@@ -11,11 +11,11 @@
     <div class="alert-success">
         @ViewData["EnderecoEncontrado"]
     </div>
-    
+
 }
 <style>
-    .tituloAlunos{
-        padding-top: 30px; 
+    .tituloAlunos {
+        padding-top: 30px;
         padding-bottom: 30px;
     }
 </style>
@@ -33,32 +33,32 @@
         </tr>
     </thead>
     <tbody>
-        @if(Model != null && Model.Any())
+        @if (Model != null && Model.Any())
         {
-            foreach(Aluno aluno in Model)
+            foreach (Aluno aluno in Model)
             {
 
-        <tr>
-            <td>@aluno.Id</td>
-            <td>@aluno.Nome</td>
-            <td>@aluno.Idade</td>
-            <td>@aluno.Cep</td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
-                    <a type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereco</a>
-                </div>
-            </td>
-             <td>
-                <div class="d-grid gap-2 d-md-block">
+                <tr>
+                    <td>@aluno.Id</td>
+                    <td>@aluno.Nome</td>
+                    <td>@aluno.Idade</td>
+                    <td>@aluno.Cep</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="BuscarEndereco" asp-route-cep="@aluno.Cep">Endereco</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
                             <a type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="ModalEditarAluno" asp-route-id="@aluno.Id">Editar</a>
-                </div>
-            </td>
-            <td>
-                <div class="d-grid gap-2 d-md-block">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-block">
                             <a type="submit" class="btn btn-light" role="button" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.Id">Excluir</a>
-                </div>
-            </td>
-        </tr>
+                        </div>
+                    </td>
+                </tr>
             }
         }
     </tbody>

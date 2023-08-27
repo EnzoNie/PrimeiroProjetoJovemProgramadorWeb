@@ -10,7 +10,8 @@
             @TempData["MsgErro"]
         </div>
     }
-    if(TempData["MsgSucesso"] != null){
+    if (TempData["MsgSucesso"] != null)
+    {
         <div class="alert-success">
             @TempData["MsgSucesso"]
         </div>
@@ -19,19 +20,21 @@
 @model Aluno
 
 <style>
-    body{
+    body {
         color: #f0f0f0;
-       
     }
-    .tituloCadastro{
+
+    .tituloCadastro {
         padding-top: 30px;
         text-align: center;
         font-size: 50px;
     }
-    .btn-primary{
+
+    .btn-primary {
         width: 15%;
     }
-    .btn-dark{
+
+    .btn-dark {
         margin-top: 20px;
     }
 </style>
@@ -40,22 +43,30 @@
 <br />
 <form asp-controller="Aluno" asp-action="InserirAluno" method="post">
     <!-- ... seus campos de formulário ... -->
-   
-<div class="mb-3">
-    <label for="formGroupExampleInput" class="form-label">Nome</label>
-    <input type="text" asp-for="Nome" class="form-control" id="formGroupExampleInput" placeholder="Nome">
-</div>
+
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Nome</label>
+        <input type="text" asp-for="Nome" class="form-control" id="formGroupExampleInput" placeholder="Nome">
+    </div>
     <div class="mb-3">
         <label for="formGroupExampleInput" class="form-label">Idade</label>
         <input type="text" asp-for="Idade" class="form-control" id="formGroupExampleInput" placeholder="Idade">
     </div>
-<div class="row g-3">
-    <div class="col-md-4">
-        <label for="validationDefault02" class="form-label">CEP</label>
-        <input type="text"  asp-for="Cep" class="form-control" id="validationDefault02" >
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="formGroupExampleInput" placeholder="Nome">
     </div>
-    <br/>
-    <br/>
-        
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">Senha</label>
+        <input type="password" asp-for="Senha" class="form-control" id="formGroupExampleInput" placeholder="Idade">
+    </div>
+    <div class="row g-3">
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">CEP</label>
+            <input type="text" asp-for="Cep" class="form-control" id="validationDefault02">
+        </div>
+        <br />
+        <br />
+
 </form>
 <button type="submit" class="btn btn-dark">Cadastrar!</button>
